@@ -32,9 +32,8 @@
     output_spatial_resolution = 0.25
     output_interp_method = 'linear'
     output_nodata = -32768
-    export_last = true
+    export_last = false
     trim_vmap = '/home/rrealrangel/Descargas/mex-centram-caribe/mex-centram-caribe.shp'
-    xmin = 
 
 [intensity]
     #   Settings for drought intensity computing.
@@ -54,8 +53,8 @@
     [intensity.sdi]
         'SPI' = [['PRECTOTLAND']]
         #'SRI' = [['BASEFLOW', 'RUNOFF']]
-        #'SSI' = [['RZMC']]
-        #'MSDI_PRESMO' = [['PRECTOTLAND'], ['RZMC']]
+        'SSI' = [['RZMC']]
+        'MSDI_PRESMO' = [['PRECTOTLAND'], ['RZMC']]
 
 [magnitude]
     #   Settings for drought magnitude computing.
