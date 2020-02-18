@@ -29,7 +29,7 @@
     input_dir_imported = '/home/rrealrangel/pysdi_data/inputs_new'
     output_dir = '/home/rrealrangel/pysdi_data/outputs_new'
     output_fname_prefix = ""
-    output_spatial_resolution = 0.25
+    output_spatial_resolution = 0.10
     output_interp_method = 'linear'
     output_nodata = -32768
     export_last = false
@@ -48,13 +48,13 @@
     #           drought index. Vals are the MERRA-2 variables used to
     #           compute it.
     compute = true
-    temp_scale = [1]
+    temp_scale = [3]
 
     [intensity.sdi]
         'SPI' = [['PRECTOTLAND']]
         #'SRI' = [['BASEFLOW', 'RUNOFF']]
-        'SSI' = [['RZMC']]
-        'MSDI_PRESMO' = [['PRECTOTLAND'], ['RZMC']]
+        #'SSI' = [['RZMC']]
+        #'MSDI_PRESMO' = [['PRECTOTLAND'], ['RZMC']]
 
 [magnitude]
     #   Settings for drought magnitude computing.

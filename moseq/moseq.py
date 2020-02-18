@@ -264,7 +264,8 @@ def monthly_dataset(date, arrays, title='SDI'):
 
 
 # %% Apply
-config = Configurations(config_file='moseq.toml')
+config_file = str(Path('__file__').parent.absolute()/'moseq.toml')
+config = Configurations(config_file=config_file)
 
 # Get region extent.
 source_ds = ogr.Open(utf8_path=config.general['trim_vmap'])
