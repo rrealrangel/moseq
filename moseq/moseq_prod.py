@@ -8,6 +8,7 @@ License
 -------
     GNU General Public License
 """
+from pathlib2 import Path
 import datetime as dt
 
 from droughtMoPro import data_manager as dmgr
@@ -18,7 +19,8 @@ from droughtMoPro import time_series as ts
 
 run_start = dt.datetime.now()
 print("---- Process started at {start} ----".format(start=run_start))
-settings = dmgr.Configurations(config_file='test.toml')
+parent_dir = Path(__file__).parent.absolute()
+settings = dmgr.Configurations(config_file=str(parent_dir/'moseq_prod.toml'))
 
 # Export drought intensity maps to KML format files.
 if settings.intensity_maps['export']:
@@ -108,24 +110,6 @@ if settings.reports['export']:
         data_files=[str(i) for i in data_files],
         map_files=map_files,
         output_dir=settings.reports['output_dir'],
-        nodata=settings.general['NODATA']
-        )
-
-# Compute and export Proxy groundwater drought index (PGDI)
-# TODO: Apply the PGDI filter to the SDI files with the original resolution.
-if settings.pgdi_maps['export']:
-    print("- Working on the Proxy Groundwater Drought Index maps.")
-    data_files = dmgr.list_files(
-        parent_dir=settings.pgdi_maps['input_data_dir'],
-        pattern=settings.pgdi_maps['input_data_fpatt'],
-        what=settings.pgdi_maps['output_period_to_export']
-        )
-    pgdi.export_pgdi_maps(
-        data_files=[str(i) for i in data_files],
-        filter_file=settings.pgdi_maps['input_filter_fpath'],
-        trim_vmap=settings.pgdi_maps['input_trim_vmap'],
-        output_res=settings.pgdi_maps['OUTPUT_RES'],
-        output_dir=settings.pgdi_maps['output_dir'],
         nodata=settings.general['NODATA']
         )
 
