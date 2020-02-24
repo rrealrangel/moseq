@@ -264,7 +264,7 @@ def monthly_dataset(date, arrays, title='SDI'):
 
 
 # %% Apply
-config_file = str(Path('__file__').parent.absolute()/'moseq.toml')
+config_file = str(Path(__file__).parent.absolute()/'moseq.toml')
 config = Configurations(config_file=config_file)
 
 # Get region extent.
