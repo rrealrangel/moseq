@@ -12,7 +12,6 @@ from pathlib2 import Path
 import datetime as dt
 
 from droughtMoPro import data_manager as dmgr
-from droughtMoPro import maps_pgdi as pgdi
 from droughtMoPro import maps_sdi as maps
 from droughtMoPro import reports as rep
 from droughtMoPro import time_series as ts
