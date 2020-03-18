@@ -1,7 +1,42 @@
 # Configuration file for mosemm_products.
 [general]
-    # General settings.
-    #
+    # input_data_dir : string
+    #     Directory where the input data is stored.
+    # output_prefix : string
+    #     Prefix for the output files names.
+    # NODATA : int
+    #     Value in the input datasets that represents null value.
+    input_data_dir = '/media/storage/OneDrive/proyectos/multiannual/mosemm/pysdi_output'
+    output_prefix = ''
+    NODATA = -32768
+
+[intensity_maps]
+    # export : bool
+    #     Flag to define whether to export intensity maps.
+    # input_data_fpatt : string
+    #     Pattern to match in the name of the input files.
+    # output_period_to_export: string, list
+    #     The temporal period for which the monitoring products will
+    #     be generated and exported. To export results of only one
+    #     monthly period, enter the month string in the format
+    #     "YYYYMM"; for example, to export the maps of February of
+    #     2018, enter output_period_to_export = "201802". To export
+    #     the results of more than one period (month), enter the
+    #     first and last periods of interes in a list; for example,
+    #     to export the maps from February of 2018 to January of
+    #     2019, enter output_period_to_export = ["201802", "201901"].
+    #     To export results of all periods analyzed (from January of
+    #     1980, to present), enter output_period_to_export = "all".
+    #     Finally, if only the last period is wanted, enter
+    #     output_period_to_export = "last".
+    # output_dir : string
+    #     Directory where to export the maps.
+    export = true
+    input_data_fpatt = '**/*.nc4'
+    output_period_to_export = "last"
+    output_dir = '/media/storage/OneDrive/proyectos/multiannual/mosemm/outputs_mapas'
+
+[magnitude_maps]
     #   output_period_to_export: string, list
     #       The temporal period for which the monitoring products will
     #       be generated and exported. To export results of only one
@@ -16,23 +51,6 @@
     #       1980, to present), enter output_period_to_export = "all".
     #       Finally, if only the last period is wanted, enter
     #       output_period_to_export = "last".
-    #   overwrite: bool
-    #       Wether to overwrite (overwrite = true) of not (overwrite =
-    #       false) the existent files.
-    #
-
-    input_data_dir = '/media/storage/OneDrive/proyectos/multiannual/mosemm/pysdi_output'
-    overwrite = false  # Still not implemented.
-    output_prefix = ''
-    NODATA = -32768
-
-[intensity_maps]
-    export = true
-    input_data_fpatt = '**/*.nc4'
-    output_period_to_export = "last"
-    output_dir = '/media/storage/OneDrive/proyectos/multiannual/mosemm/outputs_mapas'
-
-[magnitude_maps]
     export = true
     input_data_fpatt = '**/*SPI-01*.nc4'
     output_period_to_export = "last"
