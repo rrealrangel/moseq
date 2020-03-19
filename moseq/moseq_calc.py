@@ -286,6 +286,7 @@ indicators = xr.open_mfdataset(
     autoclose=True,
     parallel=False
     )
+indicators = indicators.chunk(chunks={'time': -1})
 indicators = convert_units(indicators)
 
 for temp_scale in config.intensity['temp_scale']:
