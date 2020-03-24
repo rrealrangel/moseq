@@ -102,7 +102,7 @@ if settings.reports['export']:
         what=settings.reports['output_period_to_export']
         )
     map_files = dmgr.list_files(
-        parent_dir=settings.time_series['input_vmaps_dir'],
+        parent_dir=settings.reports['input_regions_dir'],
         pattern=settings.reports['input_mapfile_patt']
         )
     rep.make_report(
